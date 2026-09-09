@@ -1,0 +1,23 @@
+{
+  "id": "aws-marketplace-channel",
+  "product": "book-partnership-data",
+  "domain": "partnership",
+  "schema_version": "partnership.v1",
+  "fetch_url": "https://aws.amazon.com/marketplace/partners",
+  "source_url": "https://aws.amazon.com/marketplace/partners",
+  "access": "html",
+  "content_type": "text/html",
+  "category": "channel-partner",
+  "title": "AWS Marketplace Channel",
+  "provider": "Amazon Web Services",
+  "eligibility_text": "AWS Marketplace describes independent software vendor and Channel Partner paths for resale and co-selling; onboarding and account requirements apply.",
+  "cost_notes": "Private-offer pricing, payment schedules, fees and partner terms are agreement-specific; no margin or payout is inferred.",
+  "enabled": true,
+  "permission_status": "reviewed-public-read",
+  "reviewed_at": "2026-09-08",
+  "permission_evidence": "https://aws.amazon.com/robots.txt",
+  "owner": "bookchaowalit",
+  "min_interval_seconds": 21600,
+  "retention": "private local raw archive; operational retention; no automatic deletion",
+  "use": "public partner-program metadata for personal discovery; no source-body republication"
+}

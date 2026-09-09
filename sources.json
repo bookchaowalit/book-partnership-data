@@ -1,0 +1,23 @@
+{
+  "domain": "partnership",
+  "enabled_sources": [
+    "stripe-partner-ecosystem",
+    "hubspot-affiliate-program",
+    "microsoft-csp-reseller",
+    "aws-marketplace-channel",
+    "shopify-partner-distribution",
+    "apple-mfi-licensing"
+  ],
+  "enabled_category_capabilities": [
+    "affiliate",
+    "reseller",
+    "channel-partner",
+    "distribution",
+    "integration-partner",
+    "licensing"
+  ],
+  "network_enabled": true,
+  "permission_status": "reviewed-public-read",
+  "policy_file": "src/book_partnership_data/source.json",
+  "notes": "Six manually invoked official public partner pages. Six-hour minimum interval. No login, partner application or commercial agreement is created."
+}

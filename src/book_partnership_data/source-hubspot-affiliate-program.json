@@ -1,0 +1,23 @@
+{
+  "id": "hubspot-affiliate-program",
+  "product": "book-partnership-data",
+  "domain": "partnership",
+  "schema_version": "partnership.v1",
+  "fetch_url": "https://www.hubspot.com/partners/affiliates",
+  "source_url": "https://www.hubspot.com/partners/affiliates",
+  "access": "html",
+  "content_type": "text/html",
+  "category": "affiliate",
+  "title": "HubSpot Affiliate Program",
+  "provider": "HubSpot",
+  "eligibility_text": "HubSpot describes an affiliate program for partners promoting HubSpot through content and referral links; approval, audience and agreement terms apply.",
+  "cost_notes": "Commission, attribution windows, payout and tax terms are agreement-specific; no revenue outcome is guaranteed.",
+  "enabled": true,
+  "permission_status": "reviewed-public-read",
+  "reviewed_at": "2026-09-08",
+  "permission_evidence": "https://www.hubspot.com/robots.txt",
+  "owner": "bookchaowalit",
+  "min_interval_seconds": 21600,
+  "retention": "private local raw archive; operational retention; no automatic deletion",
+  "use": "public partner-program metadata for personal discovery; no source-body republication"
+}
