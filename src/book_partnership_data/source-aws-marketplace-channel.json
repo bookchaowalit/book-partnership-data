@@ -9,6 +9,7 @@
   "content_type": "text/html",
   "category": "channel-partner",
   "title": "AWS Marketplace Channel",
+  "required_markers": ["aws marketplace channel", "channel partner", "resell"],
   "provider": "Amazon Web Services",
   "eligibility_text": "AWS Marketplace describes independent software vendor and Channel Partner paths for resale and co-selling; onboarding and account requirements apply.",
   "cost_notes": "Private-offer pricing, payment schedules, fees and partner terms are agreement-specific; no margin or payout is inferred.",

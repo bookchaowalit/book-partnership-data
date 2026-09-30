@@ -9,6 +9,7 @@
   "content_type": "text/html",
   "category": "distribution",
   "title": "Shopify Partner Program",
+  "required_markers": ["shopify partner program", "apps", "referrals"],
   "provider": "Shopify",
   "eligibility_text": "Shopify describes partners building and distributing apps, themes, stores and services; approval, merchant and platform terms apply.",
   "cost_notes": "Partner earnings, app or theme revenue, referrals and service arrangements follow Shopify's current partner terms; no payout is guaranteed.",

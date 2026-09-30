@@ -10,6 +10,7 @@
   "content_type": "text/html",
   "category": "reseller",
   "title": "Microsoft Cloud Solution Provider",
+  "required_markers": ["cloud solution provider", "partner", "sign in"],
   "provider": "Microsoft",
   "eligibility_text": "Microsoft describes the Cloud Solution Provider partner program and onboarding path; authorization, region and customer-management requirements apply.",
   "cost_notes": "Partner membership, pricing, incentives and customer billing terms are governed by current Microsoft agreements; no commission is inferred.",

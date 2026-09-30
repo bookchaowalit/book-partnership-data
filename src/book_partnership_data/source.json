@@ -10,6 +10,7 @@
   "category": "integration-partner",
   "record_kind": "program",
   "title": "Stripe Partner Ecosystem",
+  "required_markers": ["stripe partner ecosystem", "สมัครเป็นพาร์ทเนอร์", "saas"],
   "provider": "Stripe",
   "eligibility_text": "Stripe describes services, SaaS platform and technology partner tracks; track availability, geography, review and agreement terms must be checked on the official page.",
   "cost_notes": "No fee, commission or revenue share is inferred from the public overview; review the current partner agreement.",

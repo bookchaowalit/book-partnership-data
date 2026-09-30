@@ -1,4 +1,6 @@
+import json
 import unittest
+from importlib.resources import files
 
 from book_partnership_data.capture import normalize
 from book_partnership_data.cli import resource, validate
@@ -16,6 +18,26 @@ class SourceTests(unittest.TestCase):
         data["items"][0]["provenance"].update(raw_object_key="landing/test", bronze_manifest_key="control/manifests/test")
         self.assertEqual(data["items"][0]["category"], "integration-partner")
         self.assertEqual(validate(data)["schema_version"], "partnership.v1")
+
+    def test_drift_markers_come_from_the_source_config(self):
+        for entry in files("book_partnership_data").iterdir():
+            if not (entry.name.startswith("source") and entry.name.endswith(".json")):
+                continue
+            source = json.loads(entry.read_text(encoding="utf-8"))
+            with self.subTest(source=source["id"]):
+                markers = source.get("required_markers")
+                self.assertTrue(markers, "every source config ships its drift markers")
+                page = ("<main><p>" + " ".join(markers) + "</p></main>").encode()
+                normalize(page, source, "2026-09-08T00:00:00Z")
+                stricter = dict(source, required_markers=[*markers, "zz-not-on-page"])
+                with self.assertRaises(ValueError):
+                    normalize(page, stricter, "2026-09-08T00:00:00Z")
+                for broken in ([], None, [""], [42]):
+                    with self.assertRaises(ValueError):
+                        normalize(page, dict(source, required_markers=broken), "2026-09-08T00:00:00Z")
+        stranger = dict(resource("source.json"), id="unreviewed-partner-program")
+        with self.assertRaises(ValueError):
+            normalize(b"<p>Stripe Partner Ecosystem SaaS</p>", stranger, "2026-09-08T00:00:00Z")
 
     def test_source_drift_is_rejected(self):
         with self.assertRaises(ValueError):

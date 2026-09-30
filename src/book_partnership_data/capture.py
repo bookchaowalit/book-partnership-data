@@ -28,14 +28,14 @@ class Text(HTMLParser):
             self.parts.append(value)
 
 
-REQUIRED_MARKERS = {
-    "stripe-partner-ecosystem": ("stripe partner ecosystem", "สมัครเป็นพาร์ทเนอร์", "saas"),
-    "hubspot-affiliate-program": ("affiliate program", "commission", "referrals"),
-    "microsoft-csp-reseller": ("cloud solution provider", "partner", "sign in"),
-    "aws-marketplace-channel": ("aws marketplace channel", "channel partner", "resell"),
-    "shopify-partner-distribution": ("shopify partner program", "apps", "referrals"),
-    "apple-mfi-licensing": ("mfi program", "technical specifications", "accessories"),
-}
+def required_markers(source):
+    """Drift markers reviewed alongside the source config (`required_markers`)."""
+    markers = source.get("required_markers")
+    if not isinstance(markers, list) or not markers:
+        return None
+    if not all(isinstance(marker, str) and marker.strip() for marker in markers):
+        raise ValueError("invalid partnership drift markers")
+    return tuple(markers)
 
 
 GENERIC_SOURCES = {
@@ -63,13 +63,13 @@ GENERIC_SOURCES = {
 
 
 def normalize(raw, source, checked_at):
-    if source["id"] not in REQUIRED_MARKERS:
+    required = required_markers(source)
+    if required is None or (source["id"] != "stripe-partner-ecosystem" and source["id"] not in GENERIC_SOURCES):
         raise ValueError("unknown partnership source")
     parser = Text()
     parser.feed(raw.decode("utf-8"))
     text = " ".join(" ".join(parser.parts).split())
     folded = text.casefold()
-    required = REQUIRED_MARKERS[source["id"]]
     if not all(marker.casefold() in folded for marker in required):
         raise ValueError("partnership source drift or challenge page")
     if source["id"] == "stripe-partner-ecosystem":
