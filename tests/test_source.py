@@ -10,7 +10,7 @@ class SourceTests(unittest.TestCase):
             "<h1>สมัครเป็นพาร์ทเนอร์ของ Stripe</h1>"
             "<p>Stripe Partner Ecosystem</p>"
             "<h2>SaaS Platforms track</h2>"
-        ).encode("utf-8")
+        ).encode()
         source = resource("source.json")
         data = normalize(raw, source, "2026-09-08T00:00:00Z")
         data["items"][0]["provenance"].update(raw_object_key="landing/test", bronze_manifest_key="control/manifests/test")
