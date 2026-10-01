@@ -10,6 +10,7 @@
   "content_type": "text/html",
   "category": "licensing",
   "title": "Apple MFi Program",
+  "required_markers": ["mfi program", "technical specifications", "accessories"],
   "provider": "Apple",
   "eligibility_text": "Apple describes the MFi Program for companies developing or manufacturing electronic accessories using MFi technologies and components; enrollment and product requirements apply.",
   "cost_notes": "Licensing, certification, component and commercial terms are governed by the current MFi agreement; no fee or revenue outcome is inferred.",

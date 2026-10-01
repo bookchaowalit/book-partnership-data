@@ -9,6 +9,7 @@
   "content_type": "text/html",
   "category": "affiliate",
   "title": "HubSpot Affiliate Program",
+  "required_markers": ["affiliate program", "commission", "referrals"],
   "provider": "HubSpot",
   "eligibility_text": "HubSpot describes an affiliate program for partners promoting HubSpot through content and referral links; approval, audience and agreement terms apply.",
   "cost_notes": "Commission, attribution windows, payout and tax terms are agreement-specific; no revenue outcome is guaranteed.",
