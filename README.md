@@ -44,7 +44,7 @@ python -m pytest -q
 
 All tests are offline: source adapters are exercised with inline fixtures, the
 capture entry point is only checked for its fail-closed guard, and no test needs
-the shared Solo Empire runtime or network access. `tests/test_policy.py` keeps
+the shared solo-data-lake runtime or network access. `tests/test_policy.py` keeps
 `sources.json`, every `source*.json` policy and the bundled schema consistent.
 
 With dependencies already available, use `PYTHONPATH=src python3 -m book_partnership_data`.
@@ -97,9 +97,9 @@ partner-track metadata and keeps commission, exclusivity, settlement, approval,
 certification and timing terms unknown until the relevant agreement is reviewed.
 
 ```bash
-export SOLO_EMPIRE_ROOT=/home/bookchaowalit/book/solo-empire
-PYTHONPATH=src "$SOLO_EMPIRE_ROOT/infra/.venv-datalake/bin/python" -m book_partnership_data.capture acquire --lake "$PWD/data/lake" --state-dir "$PWD/data/control"
-PYTHONPATH=src "$SOLO_EMPIRE_ROOT/infra/.venv-datalake/bin/python" -m book_partnership_data.capture records --lake "$PWD/data/lake" --state-dir "$PWD/data/control"
+export SOLO_DATA_LAKE_ROOT=/path/to/solo-data-lake
+PYTHONPATH=src "$SOLO_DATA_LAKE_ROOT/.venv/bin/python" -m book_partnership_data.capture acquire --lake "$PWD/data/lake" --state-dir "$PWD/data/control"
+PYTHONPATH=src "$SOLO_DATA_LAKE_ROOT/.venv/bin/python" -m book_partnership_data.capture records --lake "$PWD/data/lake" --state-dir "$PWD/data/control"
 ```
 
 No runtime port is reserved. The former `opportunity.v1` is archival; `job.v1` remains a separate job-data contract.
