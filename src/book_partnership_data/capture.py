@@ -1,4 +1,5 @@
 """Capture one reviewed public partner-program page through the shared lake runtime."""
+
 import argparse
 import os
 import re
@@ -74,7 +75,9 @@ def normalize(raw, source, checked_at):
         raise ValueError("partnership source drift or challenge page")
     if source["id"] == "stripe-partner-ecosystem":
         partner_model = "Services, SaaS platform and technology partner tracks are described on the public page."
-        commission_basis = "Recurring revenue, monetization and commercial terms are track-specific and not inferred here."
+        commission_basis = (
+            "Recurring revenue, monetization and commercial terms are track-specific and not inferred here."
+        )
     else:
         partner_model = GENERIC_SOURCES[source["id"]]["partner_model"]
         commission_basis = GENERIC_SOURCES[source["id"]]["commission_basis"]
@@ -106,7 +109,13 @@ def normalize(raw, source, checked_at):
             "bronze_manifest_key": None,
         },
     }
-    return {"schema_version": source["schema_version"], "source": source["product"], "retrieved_at": checked_at, "data_status": "live", "items": [item]}
+    return {
+        "schema_version": source["schema_version"],
+        "source": source["product"],
+        "retrieved_at": checked_at,
+        "data_status": "live",
+        "items": [item],
+    }
 
 
 def source_config(source_id=None):

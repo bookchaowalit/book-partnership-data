@@ -9,13 +9,13 @@ from book_partnership_data.cli import resource, validate
 class SourceTests(unittest.TestCase):
     def test_stripe_source_fixture(self):
         raw = (
-            "<h1>สมัครเป็นพาร์ทเนอร์ของ Stripe</h1>"
-            "<p>Stripe Partner Ecosystem</p>"
-            "<h2>SaaS Platforms track</h2>"
+            "<h1>สมัครเป็นพาร์ทเนอร์ของ Stripe</h1><p>Stripe Partner Ecosystem</p><h2>SaaS Platforms track</h2>"
         ).encode()
         source = resource("source.json")
         data = normalize(raw, source, "2026-09-08T00:00:00Z")
-        data["items"][0]["provenance"].update(raw_object_key="landing/test", bronze_manifest_key="control/manifests/test")
+        data["items"][0]["provenance"].update(
+            raw_object_key="landing/test", bronze_manifest_key="control/manifests/test"
+        )
         self.assertEqual(data["items"][0]["category"], "integration-partner")
         self.assertEqual(validate(data)["schema_version"], "partnership.v1")
 
@@ -55,7 +55,9 @@ class SourceTests(unittest.TestCase):
             with self.subTest(source=filename):
                 source = resource(filename)
                 data = normalize(f"<p>{text}</p>".encode(), source, "2026-09-08T00:00:00Z")
-                data["items"][0]["provenance"].update(raw_object_key="landing/test", bronze_manifest_key="control/manifests/test")
+                data["items"][0]["provenance"].update(
+                    raw_object_key="landing/test", bronze_manifest_key="control/manifests/test"
+                )
                 self.assertEqual(data["items"][0]["category"], source["category"])
                 self.assertEqual(validate(data)["schema_version"], "partnership.v1")
 
